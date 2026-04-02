@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Admin Panel</h2>
+
+<h4>Users</h4>
+<table class="table">
+<tr><th>ID</th><th>Name</th><th>Email</th></tr>
+{% for u in users %}
+<tr><td>{{u[0]}}</td><td>{{u[1]}}</td><td>{{u[2]}}</td></tr>
+{% endfor %}
+</table>
+
+<h4>Tickets</h4>
+<table class="table">
+<tr><th>ID</th><th>User</th><th>Event</th><th>Ticket</th></tr>
+{% for t in tickets %}
+<tr><td>{{t[0]}}</td><td>{{t[1]}}</td><td>{{t[2]}}</td><td>{{t[3]}}</td></tr>
+{% endfor %}
+</table>
+
+{% endblock %}

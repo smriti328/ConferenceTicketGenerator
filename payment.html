@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<h2>Processing Payment...</h2>
+
+<form id="paymentForm" method="POST" action="/success">
+    <input type="hidden" name="event" value="{{event}}">
+</form>
+
+<script>
+var options = {
+    "key": "{{key_id}}",
+    "amount": "{{amount}}",
+    "currency": "INR",
+    "name": "Conference Ticket",
+    "order_id": "{{order_id}}",
+
+    "handler": function (response){
+        document.getElementById('paymentForm').submit();
+    }
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
+</script>
+
+</body>
+</html>

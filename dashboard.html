@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-white">Welcome, {{ session.get('name') }} 👋</h2>
+
+<!-- Scan Button -->
+<a href="/scan" class="btn btn-warning mt-3">
+📱 Scan QR Ticket
+</a>
+
+<!-- Booking -->
+<div class="card p-4 mt-3 text-dark">
+    <h4>Book Ticket</h4>
+
+    <form method="POST" action="/pay">
+        <input class="form-control my-2" name="event" placeholder="Event Name"required>
+        <button class="btn btn-primary">Book</button>
+    </form>
+</div>
+
+<!-- Tickets -->
+<div class="mt-4">
+<h4 class="text-white">Your Tickets 🎟️</h4>
+
+<div class="row">
+{% for t in tickets %}
+<div class="col-md-4">
+
+<div class="card p-3 text-center text-dark m-2">
+
+<h5>{{ t[0] }}</h5>
+<p><strong>ID:</strong> {{ t[1] }}</p>
+
+<img src="{{ t[2] }}" width="150">
+
+<br><br>
+
+<a href="/download/{{ t[1] }}" class="btn btn-success">
+📥 Download Ticket
+</a>
+
+</div>
+
+</div>
+{% endfor %}
+</div>
+
+</div>
+
+{% endblock %}
