@@ -5,7 +5,7 @@
 
 A full-stack web application that allows users to book, pay, and receive digital event tickets with QR codes and PDF format.
 
-🚀 Features
+🚀 Features of the project
 🔐 User Registration & Login
 🎟️ Ticket Booking System
 💳 Payment Integration using Razorpay
